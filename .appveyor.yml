@@ -1,0 +1,16 @@
+environment:
+  nodejs_version: "18"
+
+branches:
+  only:
+    - main
+
+cache: node_modules
+
+install:
+  - npm install
+
+build: off
+
+test_script:
+  - npm test
