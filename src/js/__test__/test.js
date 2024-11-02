@@ -1,6 +1,6 @@
 import getRating from '../rating';
 
-getRating('sort array and obj heroes', () => {
+test('sort array and obj heroes', () => {
     const heroes = [
         {
             name: 'мечник', health: 10
@@ -12,7 +12,6 @@ getRating('sort array and obj heroes', () => {
             name: 'лучник', health: 80
         },
     ];
-    const sortHeroes = sort(heroes);
     const expectedSortedHeroes = [
         {
             name: 'маг', health: 100
@@ -24,10 +23,10 @@ getRating('sort array and obj heroes', () => {
             name: 'мечник', health: 10
         },
     ];
+    const sortHeroes = getRating(heroes);
     expect(sortHeroes).toEqual(expectedSortedHeroes);
 });
-
-getRating('does not sort original array', () => {
+test('does not sort original array', () => {
     const heroes = [
         {
             name: 'мечник', health: 10
@@ -39,11 +38,11 @@ getRating('does not sort original array', () => {
             name: 'лучник', health: 80
         },
     ];
-    const sortHeroes = sort(heroes);
+    const sortHeroes = getRating(heroes);
     expect(sortHeroes).not.toBe(heroes);
 });
-getRating('zero array heroes', () => {
+test('zero array heroes', () => {
     const heroes = [];
-    const sortHeroes = sort(heroes);
+    const sortHeroes = getRating(heroes);
     expect(sortHeroes).toEqual([]);
 });
